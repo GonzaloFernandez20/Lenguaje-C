@@ -67,7 +67,69 @@ void mostrarResultados(int aNum[],int len,int aCont[])
 
 /*-------------------------------------------------------------------------------*/
 
+void insertarEn(int array[], int* longitud, int valor, int posicion){
+    int i = (*longitud) + 1;
+    while (i >= posicion)
+        {
+            array[i] = array[i - 1]; i--;
+        }
+    array[posicion] = valor;
+    (*longitud)++;
+}
+/* Alternativa: 
+    for(int i=*len; i>pos; i--)
+        {
+        a[i]=a[i-1];
+        }
+*/
+/*-------------------------------------------------------------------------------*/
 
+void eliminar(int array[], int* longitud, int posicion){
+    int i = posicion;
+    while (i < (*longitud))
+        {
+            array[i] = array[i + 1]; i++;
+        }
+    (*longitud)--;
+}
+
+/*-------------------------------------------------------------------------------*/
+
+int insertarEnOrden(int array[], int* longitud, int valor){
+    
+    int i = 0;
+    while (array[i] < *longitud && array[i] <= valor)
+        {
+            i++;
+        }
+    insertarEn(array, longitud, valor, i);
+    return i;
+}
+
+/*-------------------------------------------------------------------------------*/
+
+int buscarEnOrden (int array[], int longitud, int valor, int* encontro){
+    int i = 0;
+    while (i < longitud && array[i] < valor)
+        {
+            i++;
+        }
+    *encontro = i < longitud; 
+    return i;
+}
+
+/*-------------------------------------------------------------------------------*/
+
+int buscarEInsertarEnOrden(int array[], int* longitud, int valor, int* enc){
+    int pos = buscarEnOrden(array, *longitud, valor, enc);
+    if (!*enc)
+    {
+        insertarEnOrden(array, longitud, valor);
+    }
+    return pos;
+}
+
+/*-------------------------------------------------------------------------------*/
 /* int main()
 {
     int array[10];

@@ -3,6 +3,7 @@
     "files.associations": {
         "stdio.h": "c",
         "funciones.h": "c",
-        "valorrandom.h": "c"
+        "valorrandom.h": "c",
+        "operacionessobrearrays.h": "c"
     }
 }
