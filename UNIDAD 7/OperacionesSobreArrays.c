@@ -1,6 +1,5 @@
 #include "OperacionesSobreArrays.h"
 
-
 /*-------------------------------------------------------------------------------*/
 
 int agregar(int array[], int* longitud, int valor){

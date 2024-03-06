@@ -5,8 +5,8 @@ int estaOrdenado(int [], int);
 
 int main()
 {
-    int array[10] = {57, 12, 90, 34, 68, 9, 42, 81, 3, 25};
-    int longitud = 10;
+    int array[10] = {57, 12, 90, 34, 68};
+    int longitud = 5;
 
     printf("Array sin ordenar: ");
     for (int i = 0; i < longitud; i++)
