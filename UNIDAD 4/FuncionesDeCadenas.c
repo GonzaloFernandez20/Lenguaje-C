@@ -2,6 +2,7 @@
 tendremos que hacerlo asignando uno a uno los caracteres de la cadena a los caracteres del array.*/
 
 #include <stdio.h>
+#include <string.h>
 
 void copiarCadena(char[], char[]);
 int longitudDeCadena(char[]);
@@ -25,7 +26,7 @@ int main()
     printf("cadena = [%s] es vacia? %d\n", c, cadenaVacia(c)); */
 
     //printf("Contenido de cadena: %s \n", b);
-    char nom[]="Pablo"; int edad=39; double altura=1.70; 
+    /* char nom[]="Pablo"; int edad=39; double altura=1.70; 
     char salida[50]; 
     sprintf(salida
     ,"Mi nombre es %s, tengo %d y mido %lf"
@@ -33,9 +34,10 @@ int main()
     ,edad
     ,altura);
  
-    printf("%s\n",salida);
+    printf("%s\n",salida); */
 
-    //printf("Las cadenas son iguales: %d\n", compararCadenas("TX9XD-98N7V-6WMQ6-BX7FG-H8Q99", "7HNRX-D7KGG-3K4RQ-4WPJ4-YTDFH"));
+    printf("Las cadenas son iguales: %d\n", compararCadenas("b1253de2525afe071f14ce9fea6b9db2", "b1253de2525afe071f14ce9fea6b9db2"));
+    //printf("%d", strcmp("b417a5eda3d50de7a03a0c4c6114006e","b417a5eda3d50de7a03a0c4c6114006e"));
     
     return 0;
 }

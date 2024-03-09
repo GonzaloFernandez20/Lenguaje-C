@@ -1,0 +1,8 @@
+Nombre: Pablo
+Sexo: M
+Sueldo: 350
+
+Nombre: Vanina
+Sexo: F
+Sueldo: 700
+

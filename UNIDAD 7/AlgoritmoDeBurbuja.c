@@ -1,12 +1,16 @@
 #include <stdio.h>
+#include <time.h>
 
 void ordenar(int[], int);
 int estaOrdenado(int [], int);
 
 int main()
 {
+    time_t tiempoDeInicio = time(NULL);
+
     int array[10] = {57, 12, 90, 34, 68};
     int longitud = 5;
+    double tiempoTotal;
 
     printf("Array sin ordenar: ");
     for (int i = 0; i < longitud; i++)
@@ -22,6 +26,10 @@ int main()
         printf("%d ", array[i]);
     }
 
+    time_t tiempoFinal = time(NULL);
+    tiempoTotal = difftime(tiempoFinal, tiempoDeInicio);
+    printf("\n%.0lf segundos\n",tiempoTotal);
+    
     return 0;
 }
 
