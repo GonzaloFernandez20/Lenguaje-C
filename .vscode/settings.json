@@ -4,6 +4,7 @@
         "stdio.h": "c",
         "funciones.h": "c",
         "valorrandom.h": "c",
-        "operacionessobrearrays.h": "c"
+        "operacionessobrearrays.h": "c",
+        "stdbool.h": "c"
     }
 }

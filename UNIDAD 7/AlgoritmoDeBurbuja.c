@@ -6,11 +6,18 @@ int estaOrdenado(int [], int);
 
 int main()
 {
-    time_t tiempoDeInicio = time(NULL);
+    
 
-    int array[10] = {57, 12, 90, 34, 68};
-    int longitud = 5;
-    double tiempoTotal;
+    int array[100] = {537, 244, 684, 912, 751, 870, 88, 170, 858, 493, 23, 81, 469, 153, 947, 944, 
+                      246, 173, 799, 545, 72, 377, 502, 824, 412, 916, 997, 286, 173, 965, 369, 650, 
+                      847, 196, 881, 572, 845, 262, 709, 869, 67, 401, 218, 764, 932, 785, 169, 707, 
+                      57, 846, 890, 836, 801, 26, 54, 139, 890, 49, 853, 98, 194, 56, 254, 750, 127, 
+                      699, 133, 813, 511, 774, 345, 885, 200, 273, 488, 455, 925, 777, 401, 742, 35, 
+                      609, 918, 234, 400, 383, 878, 167, 654, 716, 364, 882, 930, 481, 289, 847, 236, 
+                      484, 822, 672};
+
+    int longitud = 100;
+    
 
     printf("Array sin ordenar: ");
     for (int i = 0; i < longitud; i++)
@@ -24,11 +31,7 @@ int main()
     for (int i = 0; i < longitud; i++)
     {
         printf("%d ", array[i]);
-    }
-
-    time_t tiempoFinal = time(NULL);
-    tiempoTotal = difftime(tiempoFinal, tiempoDeInicio);
-    printf("\n%.0lf segundos\n",tiempoTotal);
+    } 
     
     return 0;
 }
