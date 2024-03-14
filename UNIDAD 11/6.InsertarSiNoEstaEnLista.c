@@ -11,7 +11,9 @@ typedef struct Nodo
 void agregarNodo(Nodo**, int);
 void liberarMemoria(Nodo**);
 void mostrarLista(Nodo*);
+int buscarElemento(Nodo*, int);
 void insertarOrdenado(Nodo**, int);
+void buscarEInsertarOrdenado(Nodo**, int);
 
 int main()
 {
@@ -25,11 +27,9 @@ int main()
     agregarNodo(&listaEnlazada, 11);
 
     mostrarLista(listaEnlazada);
-
-    insertarOrdenado(&listaEnlazada, 7);
-    insertarOrdenado(&listaEnlazada, 12);
-    insertarOrdenado(&listaEnlazada, 10);
-    insertarOrdenado(&listaEnlazada, 1);
+    buscarEInsertarOrdenado(&listaEnlazada, 2);
+    buscarEInsertarOrdenado(&listaEnlazada, 3);
+    buscarEInsertarOrdenado(&listaEnlazada, 4);
 
     mostrarLista(listaEnlazada);
 
@@ -38,35 +38,17 @@ int main()
     return 0;
 }
 
-
-void insertarOrdenado(Nodo** p, int valorAInsertar){
-
-    //Me crafteo un nuevo nodito
-    Nodo* nuevoNodo = (Nodo*)malloc(sizeof(Nodo));
-    nuevoNodo->valorDelNodo = valorAInsertar;
-    nuevoNodo->sgteNodo = NULL;
-
-    //Busco la posicion correcta para meter el nodo
-    Nodo* aux = *p;
-    Nodo* ant = NULL;
-    while ((aux->valorDelNodo < valorAInsertar) && aux->sgteNodo != NULL )
-    {   
-        ant = aux;
-        aux = aux->sgteNodo;
+void buscarEInsertarOrdenado(Nodo** p, int valor){
+    if (buscarElemento(*p, valor))
+    {
+        puts("El elemento ya pertenecia a la lista");
+    }else
+    {
+        insertarOrdenado(p, valor);
+        puts("Elemento insertado");
     }
-    if (ant == NULL){
-        nuevoNodo->sgteNodo = aux; //El nuevo nodo apunta al anterior inicio de lista
-        *p = nuevoNodo; //el inicio de lista apunta al nuevo nodo
-    }else if (aux->sgteNodo != NULL && ant != NULL){
-        ant->sgteNodo = nuevoNodo;
-        nuevoNodo->sgteNodo = aux;
-    }else{
-        aux->sgteNodo = nuevoNodo; // el nuevo nodo se pone al final
-    }
-    
+
 }
-
-
 void agregarNodo(Nodo** p, int valorDelNodo){
 
     //Creacion de un nuevo nodo final
@@ -114,4 +96,49 @@ void liberarMemoria(Nodo** p){
         *p = proximoNodo;
     }
     puts("MEMORIA LIBERADA\n");
+}
+int buscarElemento(Nodo* p, int valorBuscado){
+
+    if (p != NULL)
+    {
+        Nodo* auxiliar = p;
+        int contador = 0; 
+        while (auxiliar != NULL && auxiliar->valorDelNodo != valorBuscado)
+        {
+            
+            auxiliar = auxiliar->sgteNodo; 
+            contador++; 
+        }
+        if(auxiliar != NULL)
+        {
+            return true;
+        }
+    }
+    return false; 
+}
+void insertarOrdenado(Nodo** p, int valorAInsertar){
+
+    //Me crafteo un nuevo nodito
+    Nodo* nuevoNodo = (Nodo*)malloc(sizeof(Nodo));
+    nuevoNodo->valorDelNodo = valorAInsertar;
+    nuevoNodo->sgteNodo = NULL;
+
+    //Busco la posicion correcta para meter el nodo
+    Nodo* aux = *p;
+    Nodo* ant = NULL;
+    while ((aux->valorDelNodo < valorAInsertar) && aux->sgteNodo != NULL )
+    {   
+        ant = aux;
+        aux = aux->sgteNodo;
+    }
+    if (ant == NULL){
+        nuevoNodo->sgteNodo = aux; //El nuevo nodo apunta al anterior inicio de lista
+        *p = nuevoNodo; //el inicio de lista apunta al nuevo nodo
+    }else if (aux->sgteNodo != NULL && ant != NULL){
+        ant->sgteNodo = nuevoNodo;
+        nuevoNodo->sgteNodo = aux;
+    }else{
+        aux->sgteNodo = nuevoNodo; // el nuevo nodo se pone al final
+    }
+    
 }
