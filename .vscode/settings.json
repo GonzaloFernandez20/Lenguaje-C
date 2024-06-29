@@ -5,6 +5,9 @@
         "funciones.h": "c",
         "valorrandom.h": "c",
         "operacionessobrearrays.h": "c",
-        "stdbool.h": "c"
-    }
+        "stdbool.h": "c",
+        "random": "c",
+        "unistd.h": "c"
+    },
+    "editor.fontSize": 15
 }
